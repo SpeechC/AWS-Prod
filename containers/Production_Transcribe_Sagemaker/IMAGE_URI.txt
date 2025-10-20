@@ -1,1 +1,1 @@
-﻿None
+﻿179311716247.dkr.ecr.us-east-1.amazonaws.com/sagemaker_transcribe@sha256:d4cad8536d6297a5cf9774cf15b891b49425bd796b541402b0f4e66eef69a73d
