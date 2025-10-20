@@ -1,0 +1,22 @@
+﻿# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Node
+node_modules/
+
+# General
+*.log
+*.zip
+.DS_Store
+
+# AWS / secrets
+.aws/
+*.pem
+*.key
+*.crt
+
+containers/
