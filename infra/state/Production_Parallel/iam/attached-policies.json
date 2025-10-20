@@ -1,0 +1,1 @@
+﻿{     "AttachedPolicies": [         {             "PolicyName": "AWSLambdaBasicExecutionRole-3324ea6f-67f9-4deb-a6c0-f5386c58576d",             "PolicyArn": "arn:aws:iam::179311716247:policy/service-role/AWSLambdaBasicExecutionRole-3324ea6f-67f9-4deb-a6c0-f5386c58576d"         }     ] }

@@ -1,0 +1,1 @@
+﻿{     "RoleName": "SCA_Lambda",     "PolicyName": "Put_Events",     "PolicyDocument": {         "Version": "2012-10-17",         "Statement": [             {                 "Effect": "Allow",                 "Action": "events:PutEvents",                 "Resource": "arn:aws:events:us-east-1:179311716247:event-bus/default"             }         ]     } }
