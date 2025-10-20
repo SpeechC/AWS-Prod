@@ -1,0 +1,65 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda functions (ZIP + Image) exported to source control.
+
+Globals:
+  Function:
+    Timeout: 60
+    MemorySize: 512
+    Tracing: Active
+
+Resources:
+  NightlyProduction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Nightly_Production
+      PackageType: Zip
+      CodeUri: ../lambda/Nightly_Production/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+
+  ProductionPostTest:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Production_Post_Test
+      PackageType: Zip
+      CodeUri: ../lambda/Production_Post_Test/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+
+  ProductionCleanup:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Production_Cleanup
+      PackageType: Zip
+      CodeUri: ../lambda/Production_Cleanup/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+
+  ProductionTranscribeSagemaker:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Production_Transcribe_Sagemaker
+      PackageType: Image
+      ImageUri: !Sub "{{resolve:ssm:/sca/lambda/Production_Transcribe_Sagemaker/image-uri}}"
+
+  ProductionParallel:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Production_Parallel
+      PackageType: Image
+      ImageUri: !Sub "{{resolve:ssm:/sca/lambda/Production_Parallel/image-uri}}"
+
+  ProductionMP3WAV:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Production_MP3_WAV
+      PackageType: Image
+      ImageUri: !Sub "{{resolve:ssm:/sca/lambda/Production_MP3_WAV/image-uri}}"
+
+  ProductionPost:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: Production_Post
+      PackageType: Image
+      ImageUri: !Sub "{{resolve:ssm:/sca/lambda/Production_Post/image-uri}}"
